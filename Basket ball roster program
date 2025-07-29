@@ -1,0 +1,46 @@
+import random
+
+
+print("Welcome to the Basketball Roster Program")
+
+
+roster = {}
+
+
+point_guard = input("Who is your Point Guard:")
+shooting_guard = input("Who is your Shooting Guard:")
+small_forward = input("Who is your Small Forward:")
+power_forward = input("Who is your Power Forward:")
+center = input("Who is your Center:")
+
+
+roster['point guard'] = point_guard
+roster['shooting guard'] = shooting_guard
+roster['small forward'] = small_forward
+roster['power forward'] = power_forward
+roster['center'] = center
+
+
+print("Your starting 5 for the upcoming basketball season")
+for position, player in roster.items():
+   print(f"{position.title()}: {player}")
+
+
+#random injury
+injured_position = random.choice(list(roster.keys()))
+injured_player = roster.pop(injured_position)
+
+
+print(f"\nOh no, your {injured_position.title()} {injured_player} was injured!\n Your roster only has 4 players.")
+new_player = input(f"Who will take {injured_player}'s place as {injured_position.title()}? ")
+
+
+roster[injured_position] = new_player
+
+
+print("Your starting 5 for the upcoming basketball season")
+for position, player in roster.items():
+   print(f"{position.title()}: {player}")
+
+
+print(f"Good luck {new_player}, you will do great\n Your roster now has 5 players")
